@@ -30,7 +30,7 @@ public class AuthForm {
 
     //методы
     public void fillUserField() {
-        fieldUser.sendKeys("edwardxsdk1");
+        fieldUser.sendKeys("edwardxsdk");
     }
 
     public void fillPasswordField() {
