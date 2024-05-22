@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.xsdkcp.setup.ConfProperties;
 
 public class AuthForm {
 
@@ -30,15 +31,15 @@ public class AuthForm {
 
     //методы
     public void fillUserField(String username) {
-        fieldUser.sendKeys("edwardxsdk");
+        fieldUser.sendKeys(username);
     }
 
     public void fillPasswordField(String password) {
-        fieldPassword.sendKeys("qw123123");
+        fieldPassword.sendKeys(password);
     }
 
     public void fillSignalingField(String signalingUrl) {
-        fieldSignaling.sendKeys("vt08.medialooks.com:8080");
+        fieldSignaling.sendKeys(signalingUrl);
     }
 
     public void clickBtnSubmit() {
