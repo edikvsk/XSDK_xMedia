@@ -29,15 +29,15 @@ public class AuthForm {
     private WebElement btnSubmit;
 
     //методы
-    public void fillUserField() {
+    public void fillUserField(String username) {
         fieldUser.sendKeys("edwardxsdk");
     }
 
-    public void fillPasswordField() {
+    public void fillPasswordField(String password) {
         fieldPassword.sendKeys("qw123123");
     }
 
-    public void fillSignalingField() {
+    public void fillSignalingField(String signalingUrl) {
         fieldSignaling.sendKeys("vt08.medialooks.com:8080");
     }
 
