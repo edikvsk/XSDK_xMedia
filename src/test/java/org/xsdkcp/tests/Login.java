@@ -6,15 +6,16 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.xsdkcp.Utils;
 import org.xsdkcp.forms.AuthForm;
-import org.xsdkcp.setup.WebDriverSetup;
 import org.xsdkcp.setup.ConfProperties;
+import org.xsdkcp.setup.WebDriverSetup;
 
 import java.time.Duration;
 
 import static org.junit.Assert.assertEquals;
 
-public class AuthFormTest {
+public class Login {
     public static AuthForm authForm;
     public static WebDriver driver;
 
@@ -29,11 +30,8 @@ public class AuthFormTest {
 
     @Test
     public void loginTest() {
-        // Использую значения из конфигурационного файла
-        authForm.fillUserField(ConfProperties.getProperty("username"));
-        authForm.fillPasswordField(ConfProperties.getProperty("password"));
-        authForm.fillSignalingField(ConfProperties.getProperty("signaling_url"));
-        authForm.clickBtnSubmit();
+
+        Utils.login(driver);
 
         // Ожидание перехода на главную страницу
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Максимальное время ожидания 10 секунд
@@ -52,5 +50,3 @@ public class AuthFormTest {
         }
     }
 }
-
-
