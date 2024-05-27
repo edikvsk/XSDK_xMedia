@@ -2,6 +2,7 @@ package org.xsdkcp;
 
 import org.openqa.selenium.WebDriver;
 import org.xsdkcp.forms.AuthForm;
+import org.xsdkcp.forms.MainPageForm;
 import org.xsdkcp.setup.ConfProperties;
 
 public class Utils {
@@ -12,5 +13,10 @@ public class Utils {
         authForm.fillPasswordField(ConfProperties.getProperty("password"));
         authForm.fillSignalingField(ConfProperties.getProperty("signaling_url"));
         authForm.clickBtnSubmit();
+    }
+
+    public static void logout(WebDriver driver) {
+        MainPageForm mainPageForm = new MainPageForm(driver);
+        mainPageForm.clickBtnLogout();
     }
 }

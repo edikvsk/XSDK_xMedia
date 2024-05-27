@@ -27,16 +27,12 @@ public class Logout {
         System.setProperty("webdriver.chrome.driver", ConfProperties.getProperty("chromedriver"));
         driver = WebDriverSetup.getDriver();
         driver.get(ConfProperties.getProperty("web-guest-link"));
-        authForm = new AuthForm(driver);
-        mainPageForm = new MainPageForm(driver);
     }
 
     @Test
     public void logoutTest() {
 
         Utils.login(driver);
-
-        mainPageForm.clickBtnLogout();
 
         // Ожидание перехода на главную страницу
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Максимальное время ожидания 10 секунд
@@ -46,6 +42,8 @@ public class Logout {
         String expectedUrlAfterLogin = ConfProperties.getProperty("login_page_url");
         String actualUrl = driver.getCurrentUrl();
         assertEquals("URL after login is not as expected.", expectedUrlAfterLogin, actualUrl);
+
+        Utils.logout(driver);
     }
 
     @AfterClass
