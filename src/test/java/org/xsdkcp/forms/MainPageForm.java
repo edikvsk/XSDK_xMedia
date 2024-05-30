@@ -36,5 +36,9 @@ public class MainPageForm {
         btnLogout.click();
     }
 
+    public void clickBtnXMedia() {
+        btnXMedia.click();
+    }
+
 
 }

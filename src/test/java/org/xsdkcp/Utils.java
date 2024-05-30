@@ -19,4 +19,9 @@ public class Utils {
         MainPageForm mainPageForm = new MainPageForm(driver);
         mainPageForm.clickBtnLogout();
     }
+
+    public static void openXMediaPage(WebDriver driver) {
+        MainPageForm mainPageForm = new MainPageForm(driver);
+        mainPageForm.clickBtnXMedia();
+    }
 }
