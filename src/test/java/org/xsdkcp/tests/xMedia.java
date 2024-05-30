@@ -42,7 +42,11 @@ public class xMedia {
 
         Utils.openXMediaPage(driver);
 
-        // Проверка на успешный логин по URL
+        // Ожидание перехода на страницу xMedia
+        WebDriverWait waitXMedia = new WebDriverWait(driver, Duration.ofSeconds(10)); // Максимальное время ожидания 10 секунд
+        boolean isUrlXMediaChanged = wait.until(ExpectedConditions.urlToBe(ConfProperties.getProperty("xmedia_page_url")));
+
+        // Проверка на успешный URL xMedia
         String expectedUrlXMedia = ConfProperties.getProperty("xmedia_page_url");
         String actualUrlXMedia = driver.getCurrentUrl();
         assertEquals("URL xMedia is not as expected.", expectedUrlXMedia, actualUrlXMedia);
