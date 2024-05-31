@@ -7,8 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.xsdkcp.Utils;
-import org.xsdkcp.forms.AuthForm;
-import org.xsdkcp.forms.MainPageForm;
 import org.xsdkcp.setup.ConfProperties;
 import org.xsdkcp.setup.WebDriverSetup;
 
@@ -17,9 +15,7 @@ import java.time.Duration;
 import static org.junit.Assert.assertEquals;
 
 public class Logout {
-    public static AuthForm authForm;
     public static WebDriver driver;
-    public static MainPageForm mainPageForm;
 
     @BeforeClass
     public static void setup() {

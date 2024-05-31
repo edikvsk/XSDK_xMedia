@@ -1,13 +1,13 @@
-package org.xsdkcp.tests;
+package org.xsdkcp.tests.xmedia;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.xsdkcp.Utils;
-import org.xsdkcp.forms.AuthForm;
+import org.xsdkcp.forms.XMediaPageForm;
 import org.xsdkcp.setup.ConfProperties;
 import org.xsdkcp.setup.WebDriverSetup;
 
@@ -15,20 +15,21 @@ import java.time.Duration;
 
 import static org.junit.Assert.assertEquals;
 
-public class xMedia {
-    public static WebDriver driver;
+public class OpenXMediaPage {
+    private WebDriver driver;
+    private XMediaPageForm xMediaPageForm;
 
-    @BeforeClass
-    public static void setup() {
+    @Before
+    public void setup() {
         // Настройка драйвера
         System.setProperty("webdriver.chrome.driver", ConfProperties.getProperty("chromedriver"));
         driver = WebDriverSetup.getDriver();
         driver.get(ConfProperties.getProperty("web-guest-link"));
+        xMediaPageForm = new XMediaPageForm(driver);
     }
 
     @Test
     public void openXMediaPageTest() {
-
         Utils.login(driver);
 
         // Ожидание перехода на главную страницу
@@ -50,10 +51,12 @@ public class xMedia {
         String expectedUrlXMedia = ConfProperties.getProperty("xmedia_page_url");
         String actualUrlXMedia = driver.getCurrentUrl();
         assertEquals("URL xMedia is not as expected.", expectedUrlXMedia, actualUrlXMedia);
+
+        driver.quit();
     }
 
-    @AfterClass
-    public static void tearDown() {
+    @After
+    public void tearDown() {
         if (driver != null) {
             driver.quit();
         }
