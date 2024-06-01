@@ -42,7 +42,7 @@ public class SourceFile {
 
         xMediaPageForm.clickBtnAddSource();
 
-        xMediaPageForm.fillPathToFile("file_path");
+        xMediaPageForm.fillPathToFile(ConfProperties.getProperty("file_path"));;
 
     }
 
