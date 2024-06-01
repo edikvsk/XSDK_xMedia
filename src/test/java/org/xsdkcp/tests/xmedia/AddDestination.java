@@ -13,7 +13,7 @@ import org.xsdkcp.setup.WebDriverSetup;
 
 import java.time.Duration;
 
-public class AddSource {
+public class AddDestination {
     private WebDriver driver;
     private XMediaPageForm xMediaPageForm;
 
@@ -40,7 +40,7 @@ public class AddSource {
         WebDriverWait waitXMedia = new WebDriverWait(driver, Duration.ofSeconds(10)); // Максимальное время ожидания 10 секунд
         boolean isUrlXMediaChanged = waitXMedia.until(ExpectedConditions.urlToBe(ConfProperties.getProperty("xmedia_page_url")));
 
-        xMediaPageForm.clickBtnAddSource();
+        xMediaPageForm.clickBtnAddDestination();
 
     }
 
