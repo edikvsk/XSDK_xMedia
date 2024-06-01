@@ -22,6 +22,9 @@ public class XMediaPageForm {
     @FindBy(xpath = "//div[@id='root']//main//div//div[3]//div[3]//div//div//div[2]//button")
     private  WebElement btnAddDestination;
 
+    @FindBy(id = "path")
+    private WebElement fieldPathToFile;
+
     //методы
     public void clickBtnAddSource() {
         btnAddSource.click();
@@ -29,6 +32,10 @@ public class XMediaPageForm {
 
     public void clickBtnAddDestination() {
         btnAddDestination.click();
+    }
+
+    public void fillPathToFile(String file_path) {
+        fieldPathToFile.sendKeys(file_path);
     }
 
 }
